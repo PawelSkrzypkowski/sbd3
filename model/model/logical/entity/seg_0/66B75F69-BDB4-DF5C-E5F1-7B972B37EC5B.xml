@@ -1,0 +1,42 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="66B75F69-BDB4-DF5C-E5F1-7B972B37EC5B" name="OgloszenieZainteresowanie">
+<createdBy>Pawel</createdBy>
+<createdTime>2019-08-23 12:59:25 UTC</createdTime>
+<generatorID>6ECA9B0C-A6A3-D454-130F-23051A6F42D0</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DCDF445D-F0CF-06EF-9826-75A588144519" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Zainteresowanie" id="7C700ED4-C507-7236-F9B9-8A0CD33B3FAA">
+<createdBy>Pawel</createdBy>
+<createdTime>2019-11-19 15:03:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DCDF445D-F0CF-06EF-9826-75A588144519" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Ogloszenie" id="AF395A4D-7586-837B-305A-2B85EECBE4D6">
+<createdBy>Pawel</createdBy>
+<createdTime>2019-11-19 15:03:21 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DCDF445D-F0CF-06EF-9826-75A588144519" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

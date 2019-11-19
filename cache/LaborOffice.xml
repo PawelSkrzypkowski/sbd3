@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25" zv="Cache for Windows (x86-64) 2016.2.1 (Build 803U_SU)" ts="2019-11-19 23:36:47">
+<Class name="LaborOffice.Kandydat">
+<Super>LaborOffice.Osoba,%Persistent,%Populate</Super>
+<TimeChanged>65336,83684.459874</TimeChanged>
+<TimeCreated>65334,52229.033843</TimeCreated>
+
+<Property name="Zaakceptowany">
+<Type>%Boolean</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="DataAplikacji">
+<Type>%Date</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="Ogloszenie">
+<Type>Ogloszenie</Type>
+<Required>1</Required>
+</Property>
+
+<Method name="getFullname">
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[	Return "Kandydat " _ ..Imie _ " " _ ..Nazwisko
+]]></Implementation>
+</Method>
+
+<Method name="writeZaakceptowany">
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[
+	if ..Zaakceptowany {
+		Return "Kandydat został zaakceptowany, data aplikacji " _ ..DataAplikacji
+	} else {
+		Return "Kandydat nie został zaakceptowany, data aplikacji " _ ..DataAplikacji	
+	}
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="LaborOffice.Klient">
+<Super>LaborOffice.Osoba,%Persistent,%Populate</Super>
+<TimeChanged>65336,78765.062093</TimeChanged>
+<TimeCreated>65334,52117.163595</TimeCreated>
+
+<Property name="NazwaFirmy">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="Nip">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="Miasto">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Method name="clientInfo">
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[	Return "Nazwa firmy: " _ ..NazwaFirmy _ ", Nip: " _ ..Nip _ ", Miasto: " _ ..Miasto _ + ", wlasciciel: "
+]]></Implementation>
+</Method>
+
+<Method name="getFullname">
+<ReturnType>%String</ReturnType>
+<Implementation><![CDATA[	Return "Klient " _ ..Imie _ " " _ ..Nazwisko
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="LaborOffice.Lubi">
+<Super>%Persistent,%Populate</Super>
+<TimeChanged>65336,63738.649753</TimeChanged>
+<TimeCreated>65334,60227.715606</TimeCreated>
+
+<Property name="OdKiedy">
+<Type>%Date</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="StopienZainteresowania">
+<Type>%Integer</Type>
+<Required>1</Required>
+<Parameter name="VALUELIST" value="1,2,3,4,5,6,7,8,9,10"/>
+</Property>
+
+<Property name="Osoba">
+<Type>LaborOffice.Osoba</Type>
+<Cardinality>one</Cardinality>
+<Inverse>Zainteresowania</Inverse>
+<Relationship>1</Relationship>
+<Required>1</Required>
+</Property>
+
+<Index name="OsobaIndex">
+<Properties>Osoba</Properties>
+</Index>
+
+<Property name="Zainteresowanie">
+<Type>Zainteresowanie</Type>
+<Required>1</Required>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^LaborOffice.LubiD</DataLocation>
+<DefaultData>LubiDefaultData</DefaultData>
+<IdLocation>^LaborOffice.LubiD</IdLocation>
+<IndexLocation>^LaborOffice.LubiI</IndexLocation>
+<StreamLocation>^LaborOffice.LubiS</StreamLocation>
+<Data name="LubiDefaultData">
+<Structure>listnode</Structure>
+<Subscript/>
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>OdKiedy</Value>
+</Value>
+<Value name="3">
+<Value>StopienZainteresowania</Value>
+</Value>
+<Value name="4">
+<Value>Osoba</Value>
+</Value>
+<Value name="5">
+<Value>Zainteresowanie</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+
+
+<Class name="LaborOffice.Ogloszenie">
+<Super>%Persistent,%Populate</Super>
+<TimeChanged>65336,84243.599943</TimeChanged>
+<TimeCreated>65335,56858.84265</TimeCreated>
+
+<Property name="Opis">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="Zarobki">
+<Type>%Double</Type>
+</Property>
+
+<Property name="Zleceniodawca">
+<Type>Klient</Type>
+<Required>1</Required>
+</Property>
+
+<Method name="isSalaryBiggerThan">
+<FormalSpec>salary:%Double=0</FormalSpec>
+<ReturnType>%Boolean</ReturnType>
+<Implementation><![CDATA[	Return ..Zarobki > salary
+]]></Implementation>
+</Method>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^LaborOffice.OgloszenieD</DataLocation>
+<DefaultData>OgloszenieDefaultData</DefaultData>
+<IdLocation>^LaborOffice.OgloszenieD</IdLocation>
+<IndexLocation>^LaborOffice.OgloszenieI</IndexLocation>
+<StreamLocation>^LaborOffice.OgloszenieS</StreamLocation>
+<Data name="OgloszenieDefaultData">
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Opis</Value>
+</Value>
+<Value name="3">
+<Value>Zarobki</Value>
+</Value>
+<Value name="4">
+<Value>Zleceniodawca</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+
+
+<Class name="LaborOffice.OgloszenieZainteresowanie">
+<Super>%Persistent,%Populate</Super>
+<TimeChanged>65336,63738.656848</TimeChanged>
+<TimeCreated>65335,57317.868538</TimeCreated>
+
+<Property name="Zainteresowanie">
+<Type>Zainteresowanie</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="Ogloszenie">
+<Type>Ogloszenie</Type>
+<Required>1</Required>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^LaborOffice.OgloszenieZ639FD</DataLocation>
+<DefaultData>OgloszenieZainteresowanieDefaultData</DefaultData>
+<IdLocation>^LaborOffice.OgloszenieZ639FD</IdLocation>
+<IndexLocation>^LaborOffice.OgloszenieZ639FI</IndexLocation>
+<StreamLocation>^LaborOffice.OgloszenieZ639FS</StreamLocation>
+<Data name="OgloszenieZainteresowanieDefaultData">
+<Structure>listnode</Structure>
+<Subscript/>
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Zainteresowanie</Value>
+</Value>
+<Value name="3">
+<Value>Ogloszenie</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+
+
+<Class name="LaborOffice.Osoba">
+<Abstract>1</Abstract>
+<TimeChanged>65336,78713.214</TimeChanged>
+<TimeCreated>65334,50690.674818</TimeCreated>
+
+<Property name="Imie">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="Nazwisko">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="Pesel">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Property name="Plec">
+<Type>%Char</Type>
+<Required>1</Required>
+<Parameter name="VALUELIST" value="M,K"/>
+</Property>
+
+<Property name="Email">
+<Type>%String</Type>
+</Property>
+
+<Property name="Telefon">
+<Type>%String</Type>
+</Property>
+
+<Property name="Znajomi">
+<Type>Osoba</Type>
+<Collection>list</Collection>
+</Property>
+
+<Property name="Zainteresowania">
+<Type>LaborOffice.Lubi</Type>
+<Cardinality>many</Cardinality>
+<Inverse>Osoba</Inverse>
+<Relationship>1</Relationship>
+</Property>
+
+<Method name="getFullname">
+<ReturnType>%String</ReturnType>
+</Method>
+</Class>
+
+
+<Class name="LaborOffice.Zainteresowanie">
+<Super>%Persistent,%Populate</Super>
+<TimeChanged>65336,63738.665536</TimeChanged>
+<TimeCreated>65334,59904.950201</TimeCreated>
+
+<Property name="Nazwa">
+<Type>%String</Type>
+<Required>1</Required>
+</Property>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^LaborOffice.ZainteresowanieD</DataLocation>
+<DefaultData>ZainteresowanieDefaultData</DefaultData>
+<IdLocation>^LaborOffice.ZainteresowanieD</IdLocation>
+<IndexLocation>^LaborOffice.ZainteresowanieI</IndexLocation>
+<StreamLocation>^LaborOffice.ZainteresowanieS</StreamLocation>
+<Data name="ZainteresowanieDefaultData">
+<Structure>listnode</Structure>
+<Subscript/>
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>Nazwa</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
+
+
+</Export>

@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="1B75B920-F87F-2A8E-6F0F-E4DFCA49B78A" name="Klient">
+<createdBy>Pawel</createdBy>
+<createdTime>2019-08-23 12:59:25 UTC</createdTime>
+<generatorID>F48D801A-581D-634C-EF66-3337AF01636D</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DCDF445D-F0CF-06EF-9826-75A588144519" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="NazwaFirmy" id="08CDDCE6-A083-2C60-FCE5-FDD8507E05AC">
+<createdBy>Pawel</createdBy>
+<createdTime>2019-08-23 12:59:25 UTC</createdTime>
+<generatorID>62D4425E-19B6-B6FF-C3DA-3FAEAF9822B4</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DCDF445D-F0CF-06EF-9826-75A588144519" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NIP" id="285A680C-35E6-5C7D-3AC9-4BAB38BF929D">
+<createdBy>Pawel</createdBy>
+<createdTime>2019-08-23 12:59:25 UTC</createdTime>
+<generatorID>FFAAA890-818C-968C-48B5-4877DCA7E65D</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DCDF445D-F0CF-06EF-9826-75A588144519" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>11</dataTypeSize>
+<ownDataTypeParameters>11,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Miasto" id="F2100F28-BE32-8DA3-647D-80CFA3F2629F">
+<createdBy>Pawel</createdBy>
+<createdTime>2019-08-23 12:59:25 UTC</createdTime>
+<generatorID>BB56DB43-65CA-A41E-77DF-0B187A329E0C</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DCDF445D-F0CF-06EF-9826-75A588144519" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Method getFullName()" id="3C5B0F76-E253-974D-84D6-B07825F2A96A">
+<createdBy>Pawel</createdBy>
+<createdTime>2019-11-19 22:22:43 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DCDF445D-F0CF-06EF-9826-75A588144519" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Method clientInfo()" id="545D42E0-AAFF-9505-AA4D-1FEC0B8F55E1">
+<createdBy>Pawel</createdBy>
+<createdTime>2019-11-19 22:23:02 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="DCDF445D-F0CF-06EF-9826-75A588144519" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>
